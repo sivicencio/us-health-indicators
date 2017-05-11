@@ -12,5 +12,9 @@
       "../common/mixins",
       "./mixins"
     ]
+  },
+  "County": {
+    "dataSource": "db",
+    "public": true
   }
 }
