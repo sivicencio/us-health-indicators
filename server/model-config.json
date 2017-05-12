@@ -14,7 +14,7 @@
     ]
   },
   "County": {
-    "dataSource": "db",
+    "dataSource": "postgres",
     "public": true
   }
 }
