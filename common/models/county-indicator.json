@@ -7,7 +7,23 @@
   },
   "properties": {},
   "validations": [],
-  "relations": {},
+  "relations": {
+    "county": {
+      "type": "belongsTo",
+      "model": "County",
+      "foreignKey": ""
+    },
+    "indicator": {
+      "type": "belongsTo",
+      "model": "Indicator",
+      "foreignKey": ""
+    },
+    "metrics": {
+      "type": "hasMany",
+      "model": "Metric",
+      "foreignKey": ""
+    }
+  },
   "acls": [],
   "methods": {}
 }

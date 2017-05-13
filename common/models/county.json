@@ -19,7 +19,19 @@
     }
   },
   "validations": [],
-  "relations": {},
+  "relations": {
+    "countyIndicators": {
+      "type": "hasMany",
+      "model": "CountyIndicator",
+      "foreignKey": ""
+    },
+    "indicators": {
+      "type": "hasMany",
+      "model": "Indicator",
+      "foreignKey": "",
+      "through": "CountyIndicator"
+    }
+  },
   "acls": [],
   "methods": {}
 }
