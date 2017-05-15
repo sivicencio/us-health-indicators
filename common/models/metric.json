@@ -1,0 +1,65 @@
+{
+  "name": "Metric",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "year": {
+      "type": "number",
+      "required": true
+    },
+    "peopleNumber": {
+      "type": "number",
+      "required": true
+    },
+    "percent": {
+      "type": "number",
+      "required": true,
+      "dataType": "decimal",
+      "precision": 10,
+      "scale": 2
+    },
+    "lowerConfidenceLimit": {
+      "type": "number",
+      "dataType": "decimal",
+      "precision": 10,
+      "scale": 2
+    },
+    "upperConfidenceLimit": {
+      "type": "number",
+      "dataType": "decimal",
+      "precision": 10,
+      "scale": 2
+    },
+    "ageAdjustedPercent": {
+      "type": "number",
+      "dataType": "decimal",
+      "precision": 10,
+      "scale": 2
+    },
+    "ageAdjustedLowerConfidenceLimit": {
+      "type": "number",
+      "dataType": "decimal",
+      "precision": 10,
+      "scale": 2
+    },
+    "ageAdjustedUpperConfidenceLimit": {
+      "type": "number",
+      "dataType": "decimal",
+      "precision": 10,
+      "scale": 2
+    }
+  },
+  "validations": [],
+  "relations": {
+    "countyIndicator": {
+      "type": "belongsTo",
+      "model": "CountyIndicator",
+      "foreignKey": ""
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

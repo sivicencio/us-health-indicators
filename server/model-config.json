@@ -16,5 +16,17 @@
   "County": {
     "dataSource": "postgres",
     "public": true
+  },
+  "Indicator": {
+    "dataSource": "postgres",
+    "public": true
+  },
+  "CountyIndicator": {
+    "dataSource": "postgres",
+    "public": false
+  },
+  "Metric": {
+    "dataSource": "postgres",
+    "public": false
   }
 }

@@ -1,0 +1,29 @@
+{
+  "name": "CountyIndicator",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {},
+  "validations": [],
+  "relations": {
+    "county": {
+      "type": "belongsTo",
+      "model": "County",
+      "foreignKey": ""
+    },
+    "indicator": {
+      "type": "belongsTo",
+      "model": "Indicator",
+      "foreignKey": ""
+    },
+    "metrics": {
+      "type": "hasMany",
+      "model": "Metric",
+      "foreignKey": ""
+    }
+  },
+  "acls": [],
+  "methods": {}
+}
