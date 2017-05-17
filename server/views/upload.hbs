@@ -1,0 +1,12 @@
+<h1>Upload Excel</h1>
+
+{{#if response }}
+  {{response}}
+{{/if}}
+
+<form action="/upload" method="post" enctype="multipart/form-data">
+  <label for="cdc_file">CDC Excel</label>
+  <input type="file" name="cdc_file" />
+
+  <input type="submit" name="commit" value="Load data" />
+</form>
