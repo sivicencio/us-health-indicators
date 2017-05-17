@@ -2,8 +2,14 @@
 
 var loopback = require('loopback');
 var boot = require('loopback-boot');
+var hbs = require('hbs');
+var fileUpload = require('express-fileupload');
 
 var app = module.exports = loopback();
+
+app.set('views', './server/views');
+app.set('view engine', 'hbs');
+app.use(fileUpload());
 
 app.start = function() {
   // start the web server
