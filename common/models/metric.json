@@ -17,39 +17,63 @@
     "percent": {
       "type": "number",
       "required": true,
-      "dataType": "decimal",
       "precision": 10,
-      "scale": 2
+      "scale": 2,
+      "postgresql": {
+        "dataType": "DECIMAL",
+        "dataPrecision": 10,
+        "dataScale": 2
+      }
     },
     "lowerConfidenceLimit": {
       "type": "number",
-      "dataType": "decimal",
       "precision": 10,
-      "scale": 2
+      "scale": 2,
+      "postgresql": {
+        "dataType": "DECIMAL",
+        "dataPrecision": 10,
+        "dataScale": 2
+      }
     },
     "upperConfidenceLimit": {
       "type": "number",
-      "dataType": "decimal",
       "precision": 10,
-      "scale": 2
+      "scale": 2,
+      "postgresql": {
+        "dataType": "DECIMAL",
+        "dataPrecision": 10,
+        "dataScale": 2
+      }
     },
     "ageAdjustedPercent": {
       "type": "number",
-      "dataType": "decimal",
       "precision": 10,
-      "scale": 2
+      "scale": 2,
+      "postgresql": {
+        "dataType": "DECIMAL",
+        "dataPrecision": 10,
+        "dataScale": 2
+      }
     },
     "ageAdjustedLowerConfidenceLimit": {
       "type": "number",
-      "dataType": "decimal",
       "precision": 10,
-      "scale": 2
+      "scale": 2,
+      "postgresql": {
+        "dataType": "DECIMAL",
+        "dataPrecision": 10,
+        "dataScale": 2
+      }
     },
     "ageAdjustedUpperConfidenceLimit": {
       "type": "number",
-      "dataType": "decimal",
       "precision": 10,
-      "scale": 2
+      "scale": 2,
+      "postgresql": {
+        "dataType": "DECIMAL",
+        "dataPrecision": 10,
+        "dataScale": 2
+      }
     }
   },
   "validations": [],
