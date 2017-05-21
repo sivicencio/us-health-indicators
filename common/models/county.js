@@ -7,7 +7,10 @@ module.exports = function(County) {
    */
 
   County.prototype.details = function(callback) {
-    // TODO
-    callback(null);
+    County.findById(this.id, {
+      include: { countyIndicators: [ 'indicator', 'metrics' ] }
+    }, function(err, county) {
+      callback(null, county);
+    });
   };
 };

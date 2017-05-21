@@ -35,8 +35,8 @@
   "acls": [],
   "methods": {
     "prototype.details": {
-      "accepts": [],
-      "returns": [],
+      "accepts": [ ],
+      "returns": [ { "type": "Object", "root": true } ],
       "description": "Get county details including indicators",
       "http": [
         {
