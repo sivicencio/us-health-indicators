@@ -8,7 +8,22 @@ module.exports = function(County) {
 
   County.prototype.details = function(callback) {
     County.findById(this.id, {
-      include: { countyIndicators: [ 'indicator', 'metrics' ] }
+      include: {
+        relation: 'countyIndicators',
+        scope: {
+          include: [
+            {
+              relation: 'indicator'
+            },
+            {
+              relation:'metrics',
+              scope: {
+                order: 'year DESC'
+              }
+            }
+          ]
+        }
+      }
     }, function(err, county) {
       callback(null, county);
     });
