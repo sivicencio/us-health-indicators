@@ -33,5 +33,17 @@
     }
   },
   "acls": [],
-  "methods": {}
+  "methods": {
+    "prototype.details": {
+      "accepts": [],
+      "returns": [],
+      "description": "Get county details including indicators",
+      "http": [
+        {
+          "path": "/details",
+          "verb": "get"
+        }
+      ]
+    }
+  }
 }
