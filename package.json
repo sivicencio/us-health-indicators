@@ -8,7 +8,8 @@
   "scripts": {
     "lint": "eslint .",
     "start": "node .",
-    "posttest": "npm run lint && nsp check"
+    "posttest": "npm run lint && nsp check",
+    "build": "webpack"
   },
   "dependencies": {
     "compression": "^1.0.3",
@@ -20,14 +21,23 @@
     "loopback-boot": "^2.6.5",
     "loopback-component-explorer": "^4.0.0",
     "loopback-connector-postgresql": "^2.4",
+    "react": "^15.5.4",
+    "react-dom": "^15.5.4",
     "serve-favicon": "^2.0.1",
     "strong-error-handler": "^2.0.0",
     "xlsx": "^0.10.2"
   },
   "devDependencies": {
+    "babel-core": "^6.24.1",
+    "babel-loader": "^7.0.0",
+    "babel-preset-env": "^1.5.1",
+    "babel-preset-react": "^6.24.1",
     "eslint": "^3.17.1",
     "eslint-config-loopback": "^8.0.0",
-    "nsp": "^2.1.0"
+    "nsp": "^2.1.0",
+    "webpack": "^2.5.1",
+    "webpack-dev-middleware": "^1.10.2",
+    "webpack-hot-middleware": "^2.18.0"
   },
   "repository": {
     "type": "",

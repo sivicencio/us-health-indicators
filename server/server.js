@@ -5,7 +5,17 @@ var boot = require('loopback-boot');
 var hbs = require('hbs');
 var fileUpload = require('express-fileupload');
 
+// Webpack config
+var webpack = require('webpack');
+var webpackDevMiddleware = require('webpack-dev-middleware');
+var webpackHotMiddleware = require('webpack-hot-middleware');
+var webpackConfig = require('../webpack.config');
+var compiler = webpack(webpackConfig);
+
 var app = module.exports = loopback();
+
+app.use(webpackDevMiddleware(compiler, { noInfo: true, publicPath: webpackConfig.output.publicPath }));
+app.use(webpackHotMiddleware(compiler));
 
 app.set('views', './server/views');
 app.set('view engine', 'hbs');
