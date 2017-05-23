@@ -15,5 +15,17 @@ module.exports = {
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoEmitOnErrorsPlugin()
-  ]
+  ],
+  module: {
+    rules: [
+      {
+        test: /\.jsx?$/,
+        exclude: /node_modules/,
+        loader: "babel-loader"
+      }
+    ]
+  },
+  resolve: {
+    extensions: ['.js', '.jsx'],
+  }
 };
