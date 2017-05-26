@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import TitleComponent from './components/TitleComponent';
+import AppComponent from './components/AppComponent';
 
 ReactDOM.render(
-  <TitleComponent titleText="US Health Indicators" />,
+  <AppComponent />,
   document.getElementById('root')
 );
