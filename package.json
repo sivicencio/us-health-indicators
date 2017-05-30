@@ -21,9 +21,11 @@
     "loopback-boot": "^2.6.5",
     "loopback-component-explorer": "^4.0.0",
     "loopback-connector-postgresql": "^2.4",
+    "promise-polyfill": "^6.0.2",
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
     "serve-favicon": "^2.0.1",
+    "setasap": "^2.0.0",
     "strong-error-handler": "^2.0.0",
     "xlsx": "^0.10.2"
   },
