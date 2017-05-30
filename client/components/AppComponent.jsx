@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import TitleComponent from './TitleComponent';
-import CountyListComponent from './CountyListComponent';
+import CountyListContainer from '../containers/CountyListContainer';
 
 class AppComponent extends Component {
   constructor(props) {
@@ -10,7 +10,7 @@ class AppComponent extends Component {
     return (
       <div>
         <TitleComponent titleText="US Health Indicators" />
-        <CountyListComponent />
+        <CountyListContainer />
       </div>
     );
   }
