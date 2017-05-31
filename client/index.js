@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Promise from 'promise-polyfill';
 import setAsap from 'setasap';
-import AppComponent from './components/AppComponent';
+import AppContainer from './containers/AppContainer';
 
 Promise._immediateFn = setAsap;
 
@@ -11,6 +11,6 @@ if (!window.Promise) {
 }
 
 ReactDOM.render(
-  <AppComponent />,
+  <AppContainer />,
   document.getElementById('root')
 );

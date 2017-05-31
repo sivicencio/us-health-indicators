@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
-import TitleComponent from './TitleComponent';
-import CountyListContainer from '../containers/CountyListContainer';
+import TitleComponent from '../components/TitleComponent';
+import CountyListContainer from './CountyListContainer';
 
-class AppComponent extends Component {
+class AppContainer extends Component {
   constructor(props) {
     super(props);
   }
+
   render() {
     return (
       <div>
@@ -16,4 +17,4 @@ class AppComponent extends Component {
   }
 }
 
-export default AppComponent;
+export default AppContainer;
