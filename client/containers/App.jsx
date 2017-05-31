@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import TitleComponent from '../components/TitleComponent';
 import CountyListContainer from './CountyListContainer';
 
-class AppContainer extends Component {
+class App extends Component {
   constructor(props) {
     super(props);
   }
@@ -17,4 +17,4 @@ class AppContainer extends Component {
   }
 }
 
-export default AppContainer;
+export default App;
