@@ -3,6 +3,12 @@ import React, { Component } from 'react';
 class CountyListComponent extends Component {
   constructor(props) {
     super(props);
+    this.handleClick = this.handleClick.bind(this);
+    this.renderCounty = this.renderCounty.bind(this);
+  }
+
+  handleClick(event) {
+    this.props.onCountyClick(event.target.dataset.id);
   }
 
   render() {
@@ -14,7 +20,11 @@ class CountyListComponent extends Component {
   }
 
   renderCounty({ id, name, state }) {
-    return <li key={ id }>{ name }, { state }</li>
+    return (
+      <li key={ id }>
+        <a data-id={ id } onClick={ this.handleClick }>{ name }, { state }</a>
+      </li>
+    );
   }
 }
 

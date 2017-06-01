@@ -5,13 +5,20 @@ import CountyListContainer from './CountyListContainer';
 class App extends Component {
   constructor(props) {
     super(props);
+    this.handleCountyClick = this.handleCountyClick.bind(this);
+    this.state = { selectedCounty: '' };
+  }
+
+  handleCountyClick(countyId) {
+    this.setState({ selectedCounty: countyId })
   }
 
   render() {
     return (
       <div>
         <TitleComponent titleText="US Health Indicators" />
-        <CountyListContainer />
+        <span>Current county: { this.state.selectedCounty }</span>
+        <CountyListContainer onCountyClick={ this.handleCountyClick }/>
       </div>
     );
   }
