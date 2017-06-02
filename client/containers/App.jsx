@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import TitleComponent from '../components/TitleComponent';
 import CountyListContainer from './CountyListContainer';
+import CountyDetailContainer from './CountyDetailContainer';
 
 class App extends Component {
   constructor(props) {
@@ -10,15 +11,15 @@ class App extends Component {
   }
 
   handleCountyClick(countyId) {
-    this.setState({ selectedCounty: countyId })
+    this.setState({ selectedCounty: countyId });
   }
 
   render() {
     return (
       <div>
         <TitleComponent titleText="US Health Indicators" />
-        <span>Current county: { this.state.selectedCounty }</span>
-        <CountyListContainer onCountyClick={ this.handleCountyClick }/>
+        <CountyDetailContainer countyId={ this.state.selectedCounty } />
+        <CountyListContainer onCountyClick={ this.handleCountyClick } />
       </div>
     );
   }

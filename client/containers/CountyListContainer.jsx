@@ -16,7 +16,7 @@ class CountyListContainer extends Component {
     fetch('/api/counties')
       .then((response) => response.json())
       .then(this.handleData)
-      .catch((error) => console.log('Counties fetching failed', error))
+      .catch((error) => console.log('Counties fetching failed', error));
   }
 
   componentWillUnmount() {

@@ -3,8 +3,8 @@ import React, { Component } from 'react';
 class CountyListComponent extends Component {
   constructor(props) {
     super(props);
-    this.handleClick = this.handleClick.bind(this);
     this.renderCounty = this.renderCounty.bind(this);
+    this.handleClick = this.handleClick.bind(this);
   }
 
   handleClick(event) {
