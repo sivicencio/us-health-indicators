@@ -1,0 +1,9 @@
+.sidebar {
+  width: 330px;
+  position:fixed;
+  top: 0;
+  bottom: 0;
+  overflow-y: scroll;
+  background-color: #DDD;
+  padding: 10px;
+}

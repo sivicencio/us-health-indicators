@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import TitleComponent from '../components/TitleComponent';
+import MainPage from '../components/MainPage';
+import Sidebar from '../components/Sidebar';
+import Header from '../components/Header';
 import CountyListContainer from './CountyListContainer';
 import CountyDetailContainer from './CountyDetailContainer';
 
@@ -16,11 +18,13 @@ class App extends Component {
 
   render() {
     return (
-      <div>
-        <TitleComponent titleText="US Health Indicators" />
+      <MainPage>
+        <Sidebar>
+          <Header title="US Health Indicators" />
+          <CountyListContainer onCountyClick={ this.handleCountyClick } />
+        </Sidebar>
         <CountyDetailContainer countyId={ this.state.selectedCounty } />
-        <CountyListContainer onCountyClick={ this.handleCountyClick } />
-      </div>
+      </MainPage>
     );
   }
 }

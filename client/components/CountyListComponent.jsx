@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import styles from '../public/stylesheets/counties.css';
 
 class CountyListComponent extends Component {
   constructor(props) {
@@ -13,9 +14,11 @@ class CountyListComponent extends Component {
 
   render() {
     return (
-      <ul className="county-list">
-        {this.props.counties.map(this.renderCounty)}
-      </ul>
+      <div className={ styles.counties }>
+        <ul>
+          { this.props.counties.map(this.renderCounty) }
+        </ul>
+      </div>
     );
   }
 

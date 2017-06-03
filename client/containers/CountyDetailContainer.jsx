@@ -22,8 +22,6 @@ class CountyDetailContainer extends Component {
   }
 
   render() {
-    if (this.props.countyId === '') return null;
-
     return <CountyDetailComponent county = { this.state.county } />;
   }
 }
