@@ -1,5 +1,15 @@
-.counties {
+.counties ul {
+  list-style: none;
+  padding: 0;
+}
 
+.counties ul li {
+  height: 40px;
+}
+
+.counties ul li a{
+  height: 40px;
+  cursor: pointer;
 }
 
 .county {

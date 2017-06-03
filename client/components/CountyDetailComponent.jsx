@@ -4,6 +4,19 @@ import styles from '../public/stylesheets/counties.css';
 class CountyDetailComponent extends Component {
   constructor(props) {
     super(props);
+    this.renderLatestMetric = this.renderLatestMetric.bind(this);
+  }
+
+  renderLatestMetric(countyIndicator) {
+    if (countyIndicator.metrics.length == 0) return null;
+
+    const latestMetric = countyIndicator.metrics[0];
+    return (
+      <li key={ latestMetric.id }>
+        <h4>{ countyIndicator.indicator.name } in { latestMetric.year }</h4>
+        <span>{ latestMetric.peopleNumber } people ({ latestMetric.percent }%)</span>
+      </li>
+    )
   }
 
   render() {
@@ -18,13 +31,16 @@ class CountyDetailComponent extends Component {
 
     return (
       <div id={`county-${ this.props.county.id }`} className={ styles.county }>
-        <ul>
-          <li>Name: { county.name }</li>
-          <li>State: { county.state }</li>
-          <li>Indicators: { county.countyIndicators.map((ci) =>
-            `${ ci.indicator.name } (${ ci.metrics[0].year })`
-            ).join(', ') }</li>
-        </ul>
+        <h2>{ county.name }</h2>
+        <h4>{ county.state }</h4>
+        <span>{ county.fipsCode }</span>
+
+        <div className={ styles.indicators }>
+          <h3>Latest Indicators</h3>
+          <ul>
+            { county.countyIndicators.map(this.renderLatestMetric) }
+          </ul>
+        </div>
       </div>
     );
   }
