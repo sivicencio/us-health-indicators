@@ -57,7 +57,8 @@ class App extends Component {
             onCountyClick={ this.handleCountyClick }
             searchTerm={ this.state.searchTerm }
             favoriteCountiesIds={ this.state.favoriteCountiesIds }
-            onFavoriteClick={ this.handleFavoriteClick } />
+            onFavoriteClick={ this.handleFavoriteClick }
+            mode={ this.state.mode } />
         </Sidebar>
         <CountyDetailContainer
           countyId={ this.state.selectedCounty }
