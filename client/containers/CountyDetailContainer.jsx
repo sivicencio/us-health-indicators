@@ -22,7 +22,9 @@ class CountyDetailContainer extends Component {
   }
 
   render() {
-    return <CountyDetailComponent county = { this.state.county } />;
+    return <CountyDetailComponent
+      county = { this.state.county }
+      favoriteCountiesIds={ this.props.favoriteCountiesIds } />;
   }
 }
 

@@ -31,6 +31,7 @@ class CountyDetailComponent extends Component {
 
     return (
       <div id={`county-${ this.props.county.id }`} className={ styles.county }>
+        <span>{ this.props.favoriteCountiesIds.indexOf(county.id) > -1 ? 'Favorite' : '' }</span>
         <h2>{ county.name }</h2>
         <h4>{ county.state }</h4>
         <span>{ county.fipsCode }</span>

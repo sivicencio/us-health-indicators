@@ -39,3 +39,9 @@
 .county {
   padding: 10px 0 0 360px;
 }
+
+.county span:first-child {
+  position: absolute;
+  right: 20px;
+  font-size: 0.9em;
+}
