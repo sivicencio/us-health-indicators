@@ -3,6 +3,7 @@ import MainPage from '../components/MainPage';
 import Sidebar from '../components/Sidebar';
 import Header from '../components/Header';
 import Search from '../components/Search';
+import Mode from '../components/Mode';
 import CountyListContainer from './CountyListContainer';
 import CountyDetailContainer from './CountyDetailContainer';
 
@@ -12,7 +13,13 @@ class App extends Component {
     this.handleCountyClick = this.handleCountyClick.bind(this);
     this.handleSearchChange = this.handleSearchChange.bind(this);
     this.handleFavoriteClick = this.handleFavoriteClick.bind(this);
-    this.state = { selectedCounty: '', searchTerm: '', favoriteCountiesIds: [] };
+    this.handleMode = this.handleMode.bind(this);
+    this.state = {
+      selectedCounty: '',
+      searchTerm: '',
+      favoriteCountiesIds: [],
+      mode: 'all'
+    };
   }
 
   handleCountyClick(countyId) {
@@ -35,12 +42,17 @@ class App extends Component {
     }
   }
 
+  handleMode(mode) {
+    this.setState({ mode: mode });
+  }
+
   render() {
     return (
       <MainPage>
         <Sidebar>
           <Header title="US Health Indicators" />
           <Search onSearchChange={ this.handleSearchChange }/>
+          <Mode mode={ this.state.mode } onModeChange={ this.handleMode }/>
           <CountyListContainer
             onCountyClick={ this.handleCountyClick }
             searchTerm={ this.state.searchTerm }
