@@ -13,8 +13,15 @@ class CountyListContainer extends Component {
   }
 
   filteredCounties() {
-    const counties = this.state.counties,
-          searchTerm = this.props.searchTerm;
+    const searchTerm = this.props.searchTerm,
+          favoriteCountiesIds = this.props.favoriteCountiesIds,
+          mode = this.props.mode;
+
+    let counties = Object.assign([], this.state.counties);
+
+    if (mode === 'favorites') {
+      counties = counties.filter((county) => favoriteCountiesIds.indexOf(county.id) > -1);
+    }
 
     if (searchTerm === '' || counties.length === 0)
       return counties;
@@ -33,7 +40,11 @@ class CountyListContainer extends Component {
   }
 
   render() {
-    return <CountyListComponent counties = { this.filteredCounties() } onCountyClick={ this.props.onCountyClick }/>;
+    return <CountyListComponent
+      counties = { this.filteredCounties() }
+      favoriteCountiesIds={ this.props.favoriteCountiesIds }
+      onCountyClick={ this.props.onCountyClick }
+      onFavoriteClick={ this.props.onFavoriteClick } />;
   }
 }
 
