@@ -11,7 +11,8 @@ class App extends Component {
     super(props);
     this.handleCountyClick = this.handleCountyClick.bind(this);
     this.handleSearchChange = this.handleSearchChange.bind(this);
-    this.state = { selectedCounty: '', searchTerm: '' };
+    this.handleFavoriteClick = this.handleFavoriteClick.bind(this);
+    this.state = { selectedCounty: '', searchTerm: '', favoriteCountiesIds: [] };
   }
 
   handleCountyClick(countyId) {
@@ -22,13 +23,29 @@ class App extends Component {
     this.setState({ searchTerm: term })
   }
 
+  handleFavoriteClick(countyId) {
+    const shouldAddFavorite = this.state.favoriteCountiesIds.indexOf(countyId) === -1;
+
+    if (shouldAddFavorite) {
+      this.setState((prevState) => ({ favoriteCountiesIds: prevState.favoriteCountiesIds.concat(countyId) }));
+    } else {
+      this.setState((prevState) => ({
+        favoriteCountiesIds: prevState.favoriteCountiesIds.filter((id) => id !== countyId)
+      }));
+    }
+  }
+
   render() {
     return (
       <MainPage>
         <Sidebar>
           <Header title="US Health Indicators" />
           <Search onSearchChange={ this.handleSearchChange }/>
-          <CountyListContainer onCountyClick={ this.handleCountyClick } searchTerm={ this.state.searchTerm }/>
+          <CountyListContainer
+            onCountyClick={ this.handleCountyClick }
+            searchTerm={ this.state.searchTerm }
+            favoriteCountiesIds={ this.state.favoriteCountiesIds }
+            onFavoriteClick={ this.handleFavoriteClick } />
         </Sidebar>
         <CountyDetailContainer countyId={ this.state.selectedCounty } />
       </MainPage>
