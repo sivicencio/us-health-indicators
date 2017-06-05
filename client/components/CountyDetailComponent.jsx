@@ -12,7 +12,7 @@ class CountyDetailComponent extends Component {
 
     const latestMetric = countyIndicator.metrics[0];
     return (
-      <li key={ latestMetric.id }>
+      <li key={ parseInt(latestMetric.id) }>
         <h4>{ countyIndicator.indicator.name } in { latestMetric.year }</h4>
         <span>{ latestMetric.peopleNumber } people ({ latestMetric.percent }%)</span>
       </li>

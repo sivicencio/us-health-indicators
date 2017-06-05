@@ -12,6 +12,19 @@ class CountyListContainer extends Component {
     this.setState({ counties: data });
   }
 
+  filteredCounties() {
+    const counties = this.state.counties,
+          searchTerm = this.props.searchTerm;
+
+    if (searchTerm === '' || counties.length === 0)
+      return counties;
+
+    return counties.filter((county) =>
+      county.name.toLowerCase().indexOf(searchTerm.toLowerCase()) > -1 ||
+      county.state.toLowerCase().indexOf(searchTerm.toLowerCase()) > -1
+    );
+  }
+
   componentDidMount() {
     fetch('/api/counties')
       .then((response) => response.json())
@@ -19,12 +32,8 @@ class CountyListContainer extends Component {
       .catch((error) => console.log('Counties fetching failed', error));
   }
 
-  componentWillUnmount() {
-    console.log('Counties list removed');
-  }
-
   render() {
-    return <CountyListComponent counties = { this.state.counties } onCountyClick={ this.props.onCountyClick }/>;
+    return <CountyListComponent counties = { this.filteredCounties() } onCountyClick={ this.props.onCountyClick }/>;
   }
 }
 

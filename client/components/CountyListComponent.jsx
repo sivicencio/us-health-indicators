@@ -13,6 +13,14 @@ class CountyListComponent extends Component {
   }
 
   render() {
+    if (!this.props.counties.length) {
+      return (
+        <div className={ styles.counties }>
+          Loading...
+        </div>
+      );
+    }
+
     return (
       <div className={ styles.counties }>
         <ul>
@@ -24,7 +32,7 @@ class CountyListComponent extends Component {
 
   renderCounty({ id, name, state }) {
     return (
-      <li key={ id }>
+      <li key={ parseInt(id) }>
         <a data-id={ id } onClick={ this.handleClick }>{ name }, { state }</a>
       </li>
     );
