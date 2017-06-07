@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import CountyEvolutionChart from './CountyEvolutionChart';
 import styles from '../public/stylesheets/counties.css';
 
 class CountyDetailComponent extends Component {
@@ -42,6 +43,8 @@ class CountyDetailComponent extends Component {
             { county.countyIndicators.map(this.renderLatestMetric) }
           </ul>
         </div>
+
+        <CountyEvolutionChart countyIndicators={ county.countyIndicators } />
       </div>
     );
   }
