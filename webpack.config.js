@@ -8,6 +8,7 @@ module.exports = {
     'whatwg-fetch',
     'webpack-hot-middleware/client',
     'font-awesome-loader',
+    'bootstrap-loader',
     './client/index'
   ],
   output: {
