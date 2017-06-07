@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import CountyEvolutionChart from './CountyEvolutionChart';
-import styles from '../public/stylesheets/counties.css';
+import styles from '../public/stylesheets/counties.scss';
 
 class CountyDetailComponent extends Component {
   constructor(props) {
@@ -32,7 +32,7 @@ class CountyDetailComponent extends Component {
 
     return (
       <div id={`county-${ this.props.county.id }`} className={ styles.county }>
-        <span>{ this.props.favoriteCountiesIds.indexOf(county.id) > -1 ? 'Favorite' : '' }</span>
+        <span><i className={ this.props.favoriteCountiesIds.indexOf(county.id) > -1 ? 'fa fa-heart' : '' }></i></span>
         <h2>{ county.name }</h2>
         <h4>{ county.state }</h4>
         <span>{ county.fipsCode }</span>

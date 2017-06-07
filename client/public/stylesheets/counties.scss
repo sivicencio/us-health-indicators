@@ -23,7 +23,7 @@
 }
 
 .counties ul li a:first-child {
-  width: 85%;
+  width: 90%;
   display: block;
 }
 
@@ -31,9 +31,13 @@
   position: absolute;
   right: 5px;
   top: 0;
-  width: 15%;
+  width: 10%;
   text-align: right;
-  font-size: 0.8em;
+  font-size: 1.8em;
+
+  > i:hover {
+    color: #C12127;
+  }
 }
 
 .county {
@@ -43,5 +47,6 @@
 .county span:first-child {
   position: absolute;
   right: 20px;
-  font-size: 0.9em;
+  font-size: 2em;
+  color: #C12127;
 }

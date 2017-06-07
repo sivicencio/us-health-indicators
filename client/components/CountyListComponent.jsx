@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import styles from '../public/stylesheets/counties.css';
+import styles from '../public/stylesheets/counties.scss';
 
 class CountyListComponent extends Component {
   constructor(props) {
@@ -15,7 +15,7 @@ class CountyListComponent extends Component {
   }
 
   handleFavoriteClick(event) {
-    this.props.onFavoriteClick(parseInt(event.target.parentNode.dataset.id));
+    this.props.onFavoriteClick(parseInt(event.currentTarget.parentNode.dataset.id));
   }
 
   render() {
@@ -49,11 +49,11 @@ class CountyListComponent extends Component {
   }
 
   renderFavorite(id) {
-    const label = this.props.favoriteCountiesIds.indexOf(id) > -1 ? 'Remove Favorite' : 'Favorite';
+    const favoriteClass = this.props.favoriteCountiesIds.indexOf(id) > -1 ? 'fa fa-heart' : 'fa fa-heart-o';
 
     return (
       <a onClick={ this.handleFavoriteClick }>
-        { label }
+        <i className={ favoriteClass }></i>
       </a>
     );
   }
