@@ -12,24 +12,35 @@ class CountyListContainer extends Component {
     this.setState({ counties: data });
   }
 
-  filteredCounties() {
-    const searchTerm = this.props.searchTerm,
-          favoriteCountiesIds = this.props.favoriteCountiesIds,
+  filterFavorites(counties) {
+    const favoriteCountiesIds = this.props.favoriteCountiesIds,
           mode = this.props.mode;
 
-    let counties = Object.assign([], this.state.counties);
+    if (mode !== 'favorites')
+      return counties;
 
-    if (mode === 'favorites') {
-      counties = counties.filter((county) => favoriteCountiesIds.indexOf(county.id) > -1);
-    }
+    return counties.filter((county) => favoriteCountiesIds.indexOf(county.id) > -1);
+  }
 
-    if (searchTerm === '' || counties.length === 0)
+  filterSearch(counties) {
+    const searchTerm = this.props.searchTerm;
+
+    if (searchTerm === '')
       return counties;
 
     return counties.filter((county) =>
       county.name.toLowerCase().indexOf(searchTerm.toLowerCase()) > -1 ||
       county.state.toLowerCase().indexOf(searchTerm.toLowerCase()) > -1
     );
+  }
+
+  filteredCounties() {
+    let counties = Object.assign([], this.state.counties);
+
+    counties = this.filterFavorites(counties);
+    counties = this.filterSearch(counties);
+
+    return counties;
   }
 
   componentDidMount() {
