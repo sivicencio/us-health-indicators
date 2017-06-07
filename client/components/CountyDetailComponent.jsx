@@ -25,26 +25,30 @@ class CountyDetailComponent extends Component {
     if (county.id === undefined) {
       return (
         <div className={ styles.county }>
-          Select a county from the list for details
+          <div className="container-fluid">
+            Select a county from the list for details
+          </div>
         </div>
       );
     }
 
     return (
       <div id={`county-${ this.props.county.id }`} className={ styles.county }>
-        <span><i className={ this.props.favoriteCountiesIds.indexOf(county.id) > -1 ? 'fa fa-heart' : '' }></i></span>
-        <h2>{ county.name }</h2>
-        <h4>{ county.state }</h4>
-        <span>{ county.fipsCode }</span>
+        <div className="container-fluid">
+          <span><i className={ this.props.favoriteCountiesIds.indexOf(county.id) > -1 ? 'fa fa-heart' : '' }></i></span>
+          <h2>{ county.name }</h2>
+          <h4>{ county.state }</h4>
+          <span>{ county.fipsCode }</span>
 
-        <div className={ styles.indicators }>
-          <h3>Latest Indicators</h3>
-          <ul>
-            { county.countyIndicators.map(this.renderLatestMetric) }
-          </ul>
+          <div className={ styles.indicators }>
+            <h3>Latest Indicators</h3>
+            <ul>
+              { county.countyIndicators.map(this.renderLatestMetric) }
+            </ul>
+          </div>
+
+          <CountyEvolutionChart countyIndicators={ county.countyIndicators } />
         </div>
-
-        <CountyEvolutionChart countyIndicators={ county.countyIndicators } />
       </div>
     );
   }
