@@ -22,7 +22,7 @@ class CountyListComponent extends Component {
     if (!this.props.counties.length) {
       return (
         <div className={ styles.counties }>
-          Loading...
+          { this.props.dataLoaded ? 'No results found.' : 'Loading...' }
         </div>
       );
     }
