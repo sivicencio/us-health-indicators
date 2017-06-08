@@ -35,16 +35,41 @@ class App extends Component {
     const shouldAddFavorite = this.state.favoriteCountiesIds.indexOf(countyId) === -1;
 
     if (shouldAddFavorite) {
-      this.setState((prevState) => ({ favoriteCountiesIds: prevState.favoriteCountiesIds.concat(countyId) }));
+      this.setState((prevState) => {
+        const favoriteCountiesIds = prevState.favoriteCountiesIds.concat(countyId);
+        this.save("favoriteCountiesIds", favoriteCountiesIds);
+        return { favoriteCountiesIds: favoriteCountiesIds }
+      });
     } else {
-      this.setState((prevState) => ({
-        favoriteCountiesIds: prevState.favoriteCountiesIds.filter((id) => id !== countyId)
-      }));
+      this.setState((prevState) => {
+        const favoriteCountiesIds = prevState.favoriteCountiesIds.filter((id) => id !== countyId) ;
+        this.save("favoriteCountiesIds", favoriteCountiesIds);
+        return { favoriteCountiesIds: favoriteCountiesIds };
+      });
     }
   }
 
   handleMode(mode) {
     this.setState({ mode: mode });
+  }
+
+  save(key, value) {
+    if (window.localStorage) {
+      localStorage.setItem(key, JSON.stringify(value));
+    }
+  }
+
+  retrieveLocalData(key) {
+    if (window.localStorage) {
+      return localStorage.getItem(key);
+    }
+  }
+
+  componentDidMount() {
+    const favoriteCountiesIds = this.retrieveLocalData("favoriteCountiesIds");
+    if (favoriteCountiesIds === null) return;
+
+    this.setState({ favoriteCountiesIds: JSON.parse(favoriteCountiesIds) });
   }
 
   render() {
