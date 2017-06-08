@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import CountyEvolutionChart from './CountyEvolutionChart';
-import styles from '../public/stylesheets/counties.css';
+import styles from '../public/stylesheets/counties.scss';
 
 class CountyDetailComponent extends Component {
   constructor(props) {
@@ -13,10 +13,12 @@ class CountyDetailComponent extends Component {
 
     const latestMetric = countyIndicator.metrics[0];
     return (
-      <li key={ parseInt(latestMetric.id) }>
-        <h4>{ countyIndicator.indicator.name } in { latestMetric.year }</h4>
-        <span>{ latestMetric.peopleNumber } people ({ latestMetric.percent }%)</span>
-      </li>
+      <tr key={ parseInt(latestMetric.id) }>
+        <td>{ countyIndicator.indicator.name }</td>
+        <td>{ latestMetric.year }</td>
+        <td>{ latestMetric.peopleNumber }</td>
+        <td>{ latestMetric.percent }%</td>
+      </tr>
     )
   }
 
@@ -25,26 +27,42 @@ class CountyDetailComponent extends Component {
     if (county.id === undefined) {
       return (
         <div className={ styles.county }>
-          Select a county from the list for details
+          <div className="container-fluid">
+            Select a county from the list for details
+          </div>
         </div>
       );
     }
 
     return (
       <div id={`county-${ this.props.county.id }`} className={ styles.county }>
-        <span>{ this.props.favoriteCountiesIds.indexOf(county.id) > -1 ? 'Favorite' : '' }</span>
-        <h2>{ county.name }</h2>
-        <h4>{ county.state }</h4>
-        <span>{ county.fipsCode }</span>
+        <div className="container-fluid">
+          <span><i className={ this.props.favoriteCountiesIds.indexOf(county.id) > -1 ? 'fa fa-heart' : '' }></i></span>
+          <h2>{ county.name }</h2>
+          <h4>{ county.state }</h4>
+          <span className={ styles.fipsCode}>FIPS code: { county.fipsCode }</span>
 
-        <div className={ styles.indicators }>
-          <h3>Latest Indicators</h3>
-          <ul>
-            { county.countyIndicators.map(this.renderLatestMetric) }
-          </ul>
+          <div className={ styles.indicators }>
+            <h3>Latest Indicators</h3>
+            <div className="table-responsive">
+              <table className="table table-striped">
+                <thead>
+                  <tr>
+                    <th style={ { width: "40%" } }>Indicator</th>
+                    <th style={ { width: "20%" } }>Year</th>
+                    <th style={ { width: "20%" } }>People Number</th>
+                    <th style={ { width: "20%" } }>Percent</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  { county.countyIndicators.map(this.renderLatestMetric) }
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <CountyEvolutionChart countyIndicators={ county.countyIndicators } />
         </div>
-
-        <CountyEvolutionChart countyIndicators={ county.countyIndicators } />
       </div>
     );
   }

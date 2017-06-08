@@ -1,0 +1,81 @@
+a {
+  color: #333;
+
+  &:hover {
+    color: #333;
+    text-decoration: none;
+  }
+}
+
+.counties{
+  font-size: 0.9em;
+  padding-top: 175px;
+}
+
+.counties ul {
+  list-style: none;
+  padding: 0;
+}
+
+.counties ul li {
+  height: 50px;
+  position: relative;
+
+  &.active {
+    border-radius: 5px;
+    background: #2caeeb;
+
+    a:first-child {
+      color: #EEE;
+    }
+  }
+}
+
+.counties ul li a {
+  height: 50px;
+  cursor: pointer;
+  padding: 5px;
+}
+
+.counties ul li a span {
+  display: block;
+  font-size: 0.8em;
+}
+
+.counties ul li a:first-child {
+  width: 88%;
+  display: block;
+}
+
+.counties ul li a:last-child {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 12%;
+  text-align: right;
+  font-size: 1.8em;
+
+  i:hover {
+    color: #C12127;
+  }
+
+  .heart {
+    color: #C12127;
+  }
+}
+
+.county {
+  padding: 10px 0 0 360px;
+
+  .fipsCode {
+    font-size: 0.8em;
+  }
+}
+
+.county span:first-child {
+  position: absolute;
+  right: 30px;
+  top: 30px;
+  font-size: 2em;
+  color: #C12127;
+}

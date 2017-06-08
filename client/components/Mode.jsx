@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import styles from '../public/stylesheets/mode.css';
+import styles from '../public/stylesheets/mode.scss';
 
 class Mode extends Component {
   constructor(props) {
@@ -14,22 +14,18 @@ class Mode extends Component {
   render() {
     return (
       <div className={ styles.mode }>
-        <div className="radio">
-          <label>
-            <input type="radio" value="all"
-                   checked={ this.props.mode == 'all' }
-                   onChange={ this.handleChange } />
-            All
-          </label>
-        </div>
-        <div className="radio">
-          <label>
-            <input type="radio" value="favorites"
-                   checked={ this.props.mode == 'favorites' }
-                   onChange={ this.handleChange } />
-            Favorites
-          </label>
-        </div>
+        <label className={ this.props.mode == 'all' ? [ "radio-inline", styles.active ].join(' ') : 'radio-inline' }>
+          <input type="radio" value="all"
+                 checked={ this.props.mode == 'all' }
+                 onChange={ this.handleChange } />
+          All
+        </label>
+        <label className={ this.props.mode == 'favorites' ? [ "radio-inline", styles.active ].join(' ') : 'radio-inline' }>
+          <input type="radio" value="favorites"
+                 checked={ this.props.mode == 'favorites' }
+                 onChange={ this.handleChange } />
+          Favorites
+        </label>
       </div>
     );
   }

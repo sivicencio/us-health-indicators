@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import MainPage from '../components/MainPage';
 import Sidebar from '../components/Sidebar';
+import Menu from '../components/Menu';
 import Header from '../components/Header';
 import Search from '../components/Search';
 import Mode from '../components/Mode';
@@ -50,10 +51,13 @@ class App extends Component {
     return (
       <MainPage>
         <Sidebar>
-          <Header title="US Health Indicators" />
-          <Search onSearchChange={ this.handleSearchChange }/>
-          <Mode mode={ this.state.mode } onModeChange={ this.handleMode }/>
+          <Menu>
+            <Header title="US Health Indicators" />
+            <Search onSearchChange={ this.handleSearchChange }/>
+            <Mode mode={ this.state.mode } onModeChange={ this.handleMode }/>
+          </Menu>
           <CountyListContainer
+            countyId={ this.state.selectedCounty }
             onCountyClick={ this.handleCountyClick }
             searchTerm={ this.state.searchTerm }
             favoriteCountiesIds={ this.state.favoriteCountiesIds }

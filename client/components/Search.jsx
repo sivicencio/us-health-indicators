@@ -15,7 +15,7 @@ class Search extends Component {
     return (
       <div className={ styles.search }>
         <fieldset>
-          <input onChange={ this.handleChange } placeholder="Enter county or state..." />
+          <input onChange={ this.handleChange } className="form-control" placeholder="Enter county or state..." />
         </fieldset>
       </div>
     );
