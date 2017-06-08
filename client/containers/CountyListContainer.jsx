@@ -4,12 +4,12 @@ import CountyListComponent from '../components/CountyListComponent';
 class CountyListContainer extends Component {
   constructor(props) {
     super(props);
-    this.state = { counties: [] };
+    this.state = { counties: [], dataLoaded: false };
     this.handleData = this.handleData.bind(this);
   }
 
   handleData(data) {
-    this.setState({ counties: data });
+    this.setState({ counties: data, dataLoaded: true });
   }
 
   filterFavorites(counties) {
@@ -56,7 +56,8 @@ class CountyListContainer extends Component {
       countyId={ this.props.countyId }
       favoriteCountiesIds={ this.props.favoriteCountiesIds }
       onCountyClick={ this.props.onCountyClick }
-      onFavoriteClick={ this.props.onFavoriteClick } />;
+      onFavoriteClick={ this.props.onFavoriteClick }
+      dataLoaded={ this.state.dataLoaded } />;
   }
 }
 
