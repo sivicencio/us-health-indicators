@@ -1,0 +1,27 @@
+.mode {
+  label {
+    width: 50%;
+    padding: 10px 0;
+    margin: 0 !important;
+    text-align: center;
+    border: 1px solid #555;
+
+    &:first-child {
+      border-radius: 5px 0 0 5px;
+    }
+
+    &:last-child {
+      border-radius: 0 5px 5px 0;
+      border-left: none;
+    }
+
+    &.active {
+      background: #2caeeb;
+      color: #EEE;
+    }
+
+    input[type=radio] {
+      visibility: hidden;
+    }
+  }
+}

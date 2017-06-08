@@ -9,6 +9,7 @@ a {
 
 .counties{
   font-size: 0.9em;
+  padding-top: 175px;
 }
 
 .counties ul {
@@ -55,7 +56,8 @@ a {
 
 .county span:first-child {
   position: absolute;
-  right: 20px;
+  right: 30px;
+  top: 30px;
   font-size: 2em;
   color: #C12127;
 }
