@@ -18,13 +18,23 @@ a {
 }
 
 .counties ul li {
-  height: 40px;
+  height: 50px;
   position: relative;
+
+  &.active {
+    border-radius: 5px;
+    background: #2caeeb;
+
+    a:first-child {
+      color: #EEE;
+    }
+  }
 }
 
 .counties ul li a {
-  height: 40px;
+  height: 50px;
   cursor: pointer;
+  padding: 5px;
 }
 
 .counties ul li a span {
@@ -33,19 +43,23 @@ a {
 }
 
 .counties ul li a:first-child {
-  width: 90%;
+  width: 88%;
   display: block;
 }
 
 .counties ul li a:last-child {
   position: absolute;
-  right: 5px;
+  right: 0;
   top: 0;
-  width: 10%;
+  width: 12%;
   text-align: right;
   font-size: 1.8em;
 
-  > i:hover {
+  i:hover {
+    color: #C12127;
+  }
+
+  .heart {
     color: #C12127;
   }
 }

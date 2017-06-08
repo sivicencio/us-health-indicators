@@ -38,7 +38,7 @@ class CountyListComponent extends Component {
 
   renderCounty({ id, name, state }) {
     return (
-      <li key={ parseInt(id) } data-id={ id }>
+      <li key={ parseInt(id) } data-id={ id } className={ this.props.countyId === id.toString() ? styles.active : '' }>
         <a onClick={ this.handleClick }>
           { name }
           <span>{ state }</span>
@@ -49,7 +49,8 @@ class CountyListComponent extends Component {
   }
 
   renderFavorite(id) {
-    const favoriteClass = this.props.favoriteCountiesIds.indexOf(id) > -1 ? 'fa fa-heart' : 'fa fa-heart-o';
+    const favoriteClass = this.props.favoriteCountiesIds.indexOf(id) > -1 ?
+                          [ 'fa', 'fa-heart', styles.heart ].join(' ') : 'fa fa-heart-o';
 
     return (
       <a onClick={ this.handleFavoriteClick }>

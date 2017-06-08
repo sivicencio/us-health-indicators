@@ -57,6 +57,7 @@ class App extends Component {
             <Mode mode={ this.state.mode } onModeChange={ this.handleMode }/>
           </Menu>
           <CountyListContainer
+            countyId={ this.state.selectedCounty }
             onCountyClick={ this.handleCountyClick }
             searchTerm={ this.state.searchTerm }
             favoriteCountiesIds={ this.state.favoriteCountiesIds }

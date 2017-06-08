@@ -52,7 +52,8 @@ class CountyListContainer extends Component {
 
   render() {
     return <CountyListComponent
-      counties = { this.filteredCounties() }
+      counties= { this.filteredCounties() }
+      countyId={ this.props.countyId }
       favoriteCountiesIds={ this.props.favoriteCountiesIds }
       onCountyClick={ this.props.onCountyClick }
       onFavoriteClick={ this.props.onFavoriteClick } />;
